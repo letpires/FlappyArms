@@ -1,99 +1,110 @@
 # Flappy Arms
 
-Jogo estilo Flappy Bird controlado pelos braços: use a webcam e levante os braços para fazer o passarinho voar. Ideal para se movimentar enquanto joga.
+Flappy Bird–style game controlled by your arms: use your webcam and raise your arms to make the bird fly. Great for moving around while you play.
 
 ![Python](https://img.shields.io/badge/Python-3.x-blue)
 ![Pygame](https://img.shields.io/badge/Pygame-2.5-green)
 ![MediaPipe](https://img.shields.io/badge/MediaPipe-Pose-orange)
 
-## Como funciona
+## How it works
 
-- **Câmera**: o jogo usa a webcam para detectar sua pose em tempo real.
-- **Controle**: levante um ou os dois braços (pulsos acima dos ombros) para o passarinho dar um “flap” e subir.
-- **Calibração**: antes de jogar, é necessário calibrar (tecla **C**) para o jogo reconhecer sua posição inicial.
+- **Camera:** The game uses your webcam to detect your pose in real time.
+- **Controls:** Raise one or both arms (wrists above shoulders) to make the bird flap and rise.
+- **Calibration:** Before playing, you need to calibrate (press **C**) so the game recognizes your starting pose.
 
-## Requisitos
+## Requirements
 
-- **Python 3.9**
-- **Webcam** funcionando
-- Boa iluminação para a detecção de pose
+- **Python 3.9+**
+- **Working webcam**
+- Good lighting for pose detection
 
-## Instalação
+## Installation
 
-1. Clone o repositório (ou baixe os arquivos):
+1. Clone the repository (or download the files):
 
 ```bash
-git clone <url-do-repositorio>
+git clone <repository-url>
 cd flappy-arms
 ```
 
-2. Crie e ative um ambiente virtual (recomendado):
+2. Create and activate a virtual environment (recommended):
 
 ```bash
 python -m venv .venv
 source .venv/bin/activate   # Linux/macOS
-# ou: .venv\Scripts\activate   # Windows
+# or: .venv\Scripts\activate   # Windows
 ```
 
-3. Instale as dependências:
+3. Install dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-4. Coloque na pasta do projeto (opcional): `logo_image.png` (logo do menu) e `bird_image.png` (passarinho no jogo). Sem elas, o menu e o pássaro usam o desenho padrão.
+4. Optional: Add `bird_logo.png` (menu logo) and `bird.png` (in-game bird) to the project folder. Without them, the menu and bird use the default graphics.
 
-## Como jogar
+## How to play
 
-1. Execute o jogo:
+1. Run the game:
 
 ```bash
 python flappy_arms.py
 ```
 
-2. No menu:
-   - Pressione **C** para **calibrar** (fique em pé, braços relaxados).
-   - Quando aparecer "CALIBRADO!", pressione **ESPAÇO** para iniciar.
+2. On the menu:
+   - Press **C** to **calibrate** (stand with arms relaxed).
+   - When you see "CALIBRATED!", press **SPACE** to start.
 
-3. Durante o jogo:
-   - **Levante os braços** para o passarinho subir e desviar dos canos.
-   - **ESC** volta ao menu.
+3. During the game:
+   - **Raise your arms** to make the bird fly up and avoid the pipes.
+   - **ESC** returns to the menu.
 
-4. No game over:
-   - **ESPAÇO** — jogar de novo  
-   - **ESC** — voltar ao menu
+4. On game over:
+   - **SPACE** — play again  
+   - **ESC** — back to menu
 
-## Controles (teclado)
+## Controls (keyboard)
 
-| Tecla   | Ação                    |
-|---------|-------------------------|
-| **C**   | Calibrar (no menu)      |
-| **ESPAÇO** | Iniciar / Jogar de novo |
-| **ESC** | Sair do jogo / Voltar ao menu |
+| Key        | Action                    |
+|-----------|---------------------------|
+| **C**     | Calibrate (on menu)       |
+| **SPACE** | Start / Play again        |
+| **ESC**   | Quit / Back to menu       |
 
-## Estrutura do projeto
+## Project structure
 
 ```
 flappy-arms/
-├── flappy_arms.py    # Código principal do jogo
-├── requirements.txt  # Dependências Python
-├── logo_image.png   # Logo no menu (opcional)
-├── bird_image.png   # Imagem do passarinho no jogo (opcional)
+├── flappy_arms.py    # Main game (desktop, camera)
+├── game_core.py      # Shared game logic (Bird, Pipe, physics)
+├── streamlit_app.py  # Web version (Streamlit)
+├── requirements.txt  # Python dependencies
+├── bird_logo.png     # Menu logo (optional)
+├── bird.png          # In-game bird image (optional)
 └── README.md
 ```
 
-## Dependências
+## Dependencies
 
-- **pygame** — gráficos e loop do jogo  
-- **opencv-python** — captura da webcam  
-- **mediapipe** — detecção de pose (ombros e pulsos)
+- **pygame** — graphics and game loop  
+- **opencv-python** — webcam capture  
+- **mediapipe** — pose detection (shoulders and wrists)
 
-## Dicas
+## Tips
 
-- Use um fundo relativamente limpo e boa luz para a câmera.
-- Mantenha o corpo (pelo menos ombros e braços) enquadrado na câmera.
-- O “flap” é detectado na **subida** dos braços; não precisa ficar com eles levantados o tempo todo.
+- Use a relatively clear background and good lighting for the camera.
+- Keep your body (at least shoulders and arms) in frame.
+- A flap is detected when your arms **go up**; you don’t need to keep them raised.
 
-## Licença
+## Web version (Streamlit)
 
-Projeto de uso livre para estudo e diversão.
+To run the browser version (click to flap, same game logic):
+
+```bash
+pip install -r requirements.txt
+streamlit run streamlit_app.py
+```
+
+## License
+
+Free to use for learning and fun.
