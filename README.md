@@ -14,7 +14,7 @@ Jogo estilo Flappy Bird controlado pelos braços: use a webcam e levante os bra�
 
 ## Requisitos
 
-- **Python 3.x**
+- **Python 3.9**
 - **Webcam** funcionando
 - Boa iluminação para a detecção de pose
 
@@ -41,7 +41,7 @@ source .venv/bin/activate   # Linux/macOS
 pip install -r requirements.txt
 ```
 
-4. Coloque a imagem `logo_image.png` na pasta do projeto (opcional; o jogo funciona sem ela).
+4. Coloque na pasta do projeto (opcional): `logo_image.png` (logo do menu) e `bird_image.png` (passarinho no jogo). Sem elas, o menu e o pássaro usam o desenho padrão.
 
 ## Como jogar
 
@@ -77,7 +77,8 @@ python flappy_arms.py
 flappy-arms/
 ├── flappy_arms.py    # Código principal do jogo
 ├── requirements.txt  # Dependências Python
-├── logo_image.png   # Logo (opcional)
+├── logo_image.png   # Logo no menu (opcional)
+├── bird_image.png   # Imagem do passarinho no jogo (opcional)
 └── README.md
 ```
 
