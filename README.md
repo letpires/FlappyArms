@@ -1,4 +1,4 @@
-# Gym Flappy Bird
+# Flappy Arms
 
 Jogo estilo Flappy Bird controlado pelos braços: use a webcam e levante os braços para fazer o passarinho voar. Ideal para se movimentar enquanto joga.
 
